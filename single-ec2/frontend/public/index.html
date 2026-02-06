@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flask + Express | AWS EC2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: #020617;
+      padding: 30px;
+      border-radius: 10px;
+      width: 420px;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    }
+    h1 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+    button {
+      background: #38bdf8;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    pre {
+      background: #020617;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🚀 Full Stack Deployment</h1>
+    <p>Express Frontend → Flask Backend</p>
+    <button onclick="checkBackend()">Check Backend Status</button>
+    <pre id="output">Click the button to test backend</pre>
+  </div>
+
+  <script>
+    async function checkBackend() {
+      const output = document.getElementById("output");
+      output.textContent = "Checking backend...";
+
+      try {
+        const res = await fetch("/status");
+        const data = await res.json();
+        output.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        output.textContent = "❌ Backend not reachable";
+      }
+    }
+  </script>
+</body>
+</html>
