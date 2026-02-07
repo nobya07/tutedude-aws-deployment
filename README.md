@@ -7,7 +7,7 @@ backend url http://13.204.65.8:5000/api/health
 
 frontend url http://43.204.230.232:3000/status
 
-backend url :- http://13.204.67.103:5000/api/health
+backend url :- http://13.127.130.14:5000/api/health
 
 
 3. Deploy Your flask backend and express frontend Docker Container using aws ecr, ecs and vpc services
